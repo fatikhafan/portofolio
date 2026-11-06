@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fatikh Afan Kurniawan - Portofolio</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Fatikh Afan Kurniawan - Digital Architect / AI Explorer</title>
+    <!-- Google Fonts untuk font modern -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- FontAwesome untuk ikon media sosial -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* --- CSS Reset & Dasar --- */
         * {
             margin: 0;
             padding: 0;
@@ -14,7 +17,7 @@
         }
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #0b0f19;
+            background-color: #0b0f19; /* Latar belakang sangat gelap */
             color: #f1f5f9;
             line-height: 1.6;
             padding: 20px;
@@ -23,142 +26,307 @@
             align-items: center;
             min-height: 100vh;
         }
-        .container {
+
+        /* --- Container Utama --- */
+        .portfolio-dashboard {
             width: 100%;
-            max-width: 700px;
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 25px;
+        }
+
+        /* --- Panel Kiri: Identitas --- */
+        .identity-panel {
             background: #111827;
-            padding: 40px;
+            padding: 30px;
             border-radius: 16px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
             border: 1px solid #1f2937;
-        }
-        header {
             text-align: center;
-            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        header h1 {
-            font-size: 28px;
+
+        .profile-photo-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #38bdf8;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .profile-photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .identity-panel h1 {
+            font-size: 24px;
             color: #ffffff;
             margin-bottom: 5px;
         }
-        header p {
+
+        .title-sub {
             color: #38bdf8;
             font-weight: 600;
-            font-size: 15px;
-        }
-        .bio {
-            text-align: center;
-            color: #94a3b8;
             font-size: 14px;
-            margin-bottom: 25px;
+            font-family: 'Share Tech Mono', monospace; /* Font IT */
         }
-        section {
-            margin-bottom: 25px;
+
+        .bio-text {
+            color: #94a3b8;
+            font-size: 13px;
+            margin: 15px 0;
+            text-align: left;
         }
-        h2 {
-            font-size: 18px;
+
+        .skills-section h2 {
+            font-size: 16px;
             color: #f8fafc;
-            border-bottom: 2px solid #1f2937;
-            padding-bottom: 8px;
-            margin-bottom: 15px;
+            border-bottom: 1px solid #1f2937;
+            padding-bottom: 5px;
+            margin: 15px 0;
         }
+
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
+            justify-content: center;
         }
+
         .badge {
             background-color: #1e293b;
             color: #38bdf8;
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-size: 13px;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 12px;
             border: 1px solid #334155;
             font-weight: 500;
         }
-        .project-item {
-            background: #161e2e;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
+
+        /* --- Panel Kanan: Konten Interaktif --- */
+        .content-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .project-section, .kuesioner-section {
+            background: #111827;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
             border: 1px solid #1f2937;
         }
-        .project-item h3 {
+
+        .project-section h2, .kuesioner-section h2 {
+            font-size: 18px;
+            color: #f8fafc;
+            margin-bottom: 15px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .project-card {
+            background: #161e2e;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #1f2937;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            border-color: #38bdf8;
+        }
+
+        .project-card h3 {
             font-size: 15px;
             color: #f1f5f9;
             margin-bottom: 5px;
         }
-        .project-item p {
+
+        .project-card p {
             font-size: 13px;
             color: #94a3b8;
         }
+
+        /* --- Ikon Interaktif --- */
         .social-links {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-top: 30px;
+            margin-top: 25px;
         }
-        .btn {
-            background-color: #0284c7;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
+
+        .social-icon {
+            color: #94a3b8;
+            font-size: 20px;
             text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: background 0.3s;
+            transition: color 0.3s;
         }
-        .btn:hover {
-            background-color: #0369a1;
+
+        .social-icon:hover {
+            color: #38bdf8;
+        }
+
+        /* --- Efek 'Kuesioner'/Anak IT Keren --- */
+        .viz-container {
+            position: relative;
+            background: #0b0f19;
+            border-radius: 12px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            border: 1px solid #334155;
+            font-family: 'Share Tech Mono', monospace;
+            color: #6ee7b7;
+        }
+
+        .viz-header {
+            grid-column: 1 / -1;
+            font-size: 14px;
+            font-weight: bold;
+            color: #38bdf8;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .viz-card {
+            background: #161e2e;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 11px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .network-graph-container {
+            min-height: 100px;
+            background-color: rgba(6, 182, 212, 0.05);
+            border: 1px solid #06b6d4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #06b6d4;
+        }
+
+        .heatmap-container {
+            min-height: 100px;
+            background-color: rgba(244, 114, 182, 0.05);
+            border: 1px solid #f472b6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #f472b6;
+        }
+
+        /* Efek hover interaktif */
+        .viz-card:hover {
+            background-color: rgba(56, 189, 248, 0.1);
+        }
+
+        /* CSS untuk responsive di perangkat mobile */
+        @media (max-width: 768px) {
+            .portfolio-dashboard {
+                grid-template-columns: 1fr;
+            }
+            .content-panel {
+                margin-top: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Bagian Identitas -->
-        <header>
+    <div class="portfolio-dashboard">
+        <!-- Panel Kiri: Identitas -->
+        <div class="identity-panel">
+            <div class="profile-photo-container">
+                <!-- GANTI URL INI DENGAN URL FOTO KAMU -->
+                <img src="path/to/your/profile-photo.jpg" alt="Fatikh Afan Kurniawan - Profile Photo">
+            </div>
             <h1>Fatikh Afan Kurniawan, S.Kom.</h1>
-            <p>💻 SQL & Web Developer | Data & Backend Enthusiast</p>
-        </header>
+            <p class="title-sub">&lt; SQL & Web Developer / Data & Backend Enthusiast &gt;</p>
 
-        <div class="bio">
-            <p>Selamat datang di halaman portofolio resmi saya. Berfokus pada pengembangan web, manajemen database, dan otomasi alur kerja operasional.</p>
+            <div class="bio-text">
+                <p>Selamat datang di profil saya. Berfokus pada pengembangan sistem administrasi/teknis, optimalisasi database, dan otomatisasi berbasis cloud. Memiliki latar belakang kuat di S1 Teknik Informatika.</p>
+            </div>
+
+            <div class="skills-section">
+                <h2>Tech Stack & Keahlian</h2>
+                <div class="skills-grid">
+                    <span class="badge">PHP / Laravel / CodeIgniter</span>
+                    <span class="badge">SQL / MySQL</span>
+                    <span class="badge">Google Apps Script (GAS) / API</span>
+                    <span class="badge">Python / PBO</span>
+                    <span class="badge">HTML / CSS / JavaScript</span>
+                    <span class="badge">Git / GitHub</span>
+                    <span class="badge">AI Concepts / Algorithms</span>
+                </div>
+            </div>
+
+            <!-- Bagian Kontak / Media Sosial -->
+            <div class="social-links">
+                <a href="mailto:fatikhafan28@gmail.com" class="social-icon" target="_blank"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/fatikhafan" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+                <!-- Ganti link LinkedIn dengan link kamu yang benar jika ada -->
+                <a href="https://www.linkedin.com/in/fatikh-afan-kurniawan-54477813a" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
         </div>
 
-        <!-- Bagian Keahlian -->
-        <section>
-            <h2>Tech Stack & Keahlian</h2>
-            <div class="skills-grid">
-                <span class="badge">PHP / Laravel</span>
-                <span class="badge">SQL & MySQL</span>
-                <span class="badge">JavaScript</span>
-                <span class="badge">HTML / CSS</span>
-                <span class="badge">Google Apps Script</span>
-                <span class="badge">Python & Streamlit</span>
-            </div>
-        </section>
+        <!-- Panel Kanan: Proyek & Kuesioner -->
+        <div class="content-panel">
+            <section class="project-section">
+                <h2>Proyek Unggulan</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>Sistem Absensi & Otomasi J&T</h3>
+                        <p>Mengembangkan sistem absensi digital dan otomasi alur data operasional menggunakan Google Apps Script & Google Sheets di J&T Express.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Otomatisasi Data Ujian Pesantren</h3>
+                        <p>Mengoptimalkan pengolahan data ujian dengan Microsoft Excel dan otomatisasi berbasis GAS di PP Matholi'ul Anwar.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Klasifikasi Benih Ikan (CNN)</h3>
+                        <p>Aplikasi web interaktif untuk klasifikasi benih ikan mas menggunakan model Computer Vision.</p>
+                    </div>
+                    <!-- Kamu bisa tambahkan proyek lain di sini -->
+                </div>
+            </section>
 
-        <!-- Bagian Portofolio / Proyek -->
-        <section>
-            <h2>Proyek Unggulan</h2>
-            
-            <div class="project-item">
-                <h3>Klasifikasi Benih Ikan Mas (CNN & ResNet50)</h3>
-                <p>Sistem berbasis Python & Streamlit untuk klasifikasi benih ikan dengan akurasi tinggi, terintegrasi dengan Google Sheets.</p>
-            </div>
-
-            <div class="project-item">
-                <h3>Sistem Absensi & Otomasi J&T Express</h3>
-                <p>Membangun sistem absensi digital dan otomasi alur data operasional menggunakan Google Apps Script & Google Sheets.</p>
-            </div>
-        </section>
-
-        <!-- Tombol Kontak / GitHub -->
-        <div class="social-links">
-            <a href="https://github.com/fatikhafan" target="_blank" class="btn">Kunjungi GitHub</a>
-        </div>
-    </div>
-
-</body>
-</html>
+            <section class="kuesioner-section">
+                <h2>Data Visualisasi & Interaktivitas</h2>
+                <div class="viz-container">
+                    <div class="viz-header">Feedback Komunitas & Analisis Kuesioner (Live Data Mockup)</div>
+                    
+                    <div class="viz-card network-graph-container">
+                        Sentiment Network Graph
+                    </div>
+                    <div class="viz-card">
+                        <div>Response Distribution (by Feature):</div>
+                        <div style="color: #6ee7b7;">&nbsp;[==&gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;] Feature A (75%)</div>
+                        <div style="color: #6ee7b7;">&nbsp;[====&gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;] Feature B (88%)</div>
+                    </div>
+                    
+                    <div class="viz-card heatmap-container">
+                        Skill Match Heatmap
+                    </div>
+                    <div class="viz-card">
+                        <div>Key Findings Cluster:</div>
+                        <div style="color: #38bdf8;"># Data Automation (high demand)</div>
+                        <div style="color: #38bdf8;"># API Integration (core skill)
